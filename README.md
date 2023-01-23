@@ -1,5 +1,7 @@
+# Hash Brown
+
 <p align="center">
-    <img alt="logo" src="img/hash_brown_genshin_impact.png" width=600 />
+    <img alt="logo" src="img/hash_brown_genshin_impact.png" width=300 />
 </p>
 
 <p align="center">
