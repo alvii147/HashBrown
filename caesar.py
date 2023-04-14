@@ -2,8 +2,8 @@ import string
 import re
 from collections import Counter
 
-with open('excerpt.txt', 'r') as excerpt_file:
-    excerpt = re.sub('\s+', ' ', excerpt_file.read())
+with open('data/excerpt.txt', 'r') as excerpt_file:
+    EXCERPT = re.sub('\s+', ' ', excerpt_file.read())
 
 def encrypt(plain_text, key):
     cipher_text = ''
@@ -50,7 +50,7 @@ def mean_squared_error_alpha(freq1, freq2):
     return mse
 
 def decipher(cipher_text, best_match=False):
-    excerpt_letter_freq = get_letter_freq(excerpt)
+    excerpt_letter_freq = get_letter_freq(EXCERPT)
     plain_texts = brute_force(cipher_text)
     plain_text_mse = []
 
@@ -67,7 +67,7 @@ def decipher(cipher_text, best_match=False):
     return plain_text_mse
 
 if __name__ == '__main__':
-    with open('message.txt', 'r') as message_file:
+    with open('data/message.txt', 'r') as message_file:
         message = re.sub('\s+', ' ', message_file.read())
 
     key = 12

@@ -2,8 +2,8 @@ import string
 import re
 from collections import Counter
 
-with open('excerpt.txt', 'r') as excerpt_file:
-    excerpt = re.sub('\s+', ' ', excerpt_file.read())
+with open('data/excerpt.txt', 'r') as excerpt_file:
+    EXCERPT = re.sub('\s+', ' ', excerpt_file.read())
 
 def clean_non_alpha(text):
     clean_text = ''.join(re.findall('[a-zA-Z]+', text))
@@ -67,7 +67,7 @@ def brute_force(text):
     return plain_texts
 
 def decipher_subset(text):
-    excerpt_letter_freq = get_letter_freq(excerpt)
+    excerpt_letter_freq = get_letter_freq(EXCERPT)
     plain_texts = brute_force(text)
     min_mse_plain_text = ''
     min_mse = -1
@@ -103,11 +103,11 @@ def decipher(cipher_text, key_len_range):
     return plain_texts
 
 if __name__ == '__main__':
-    with open('message.txt', 'r') as message_file:
+    with open('data/message.txt', 'r') as message_file:
         message = re.sub('\s+', ' ', message_file.read())
     # message = 'hellohowareyoumaniamdoingverywelltobehonestthisisthebiggestmaddestgigihaveeverhadthepleasureofdoing'
 
-    with open('key.txt', 'r') as key_file:
+    with open('data/key.txt', 'r') as key_file:
         key = re.sub('\s+', ' ', key_file.read())
 
     print('\nMessage:')
